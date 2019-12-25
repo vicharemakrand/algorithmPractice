@@ -1,0 +1,11 @@
+D:\codepractice-prj\InterviewProblems\CodeInterview\CodeInterview\bin\Debug\netcoreapp3.0\CodeInterview.exe
+D:\codepractice-prj\InterviewProblems\CodeInterview\CodeInterview\bin\Debug\netcoreapp3.0\CodeInterview.deps.json
+D:\codepractice-prj\InterviewProblems\CodeInterview\CodeInterview\bin\Debug\netcoreapp3.0\CodeInterview.runtimeconfig.json
+D:\codepractice-prj\InterviewProblems\CodeInterview\CodeInterview\bin\Debug\netcoreapp3.0\CodeInterview.runtimeconfig.dev.json
+D:\codepractice-prj\InterviewProblems\CodeInterview\CodeInterview\bin\Debug\netcoreapp3.0\CodeInterview.dll
+D:\codepractice-prj\InterviewProblems\CodeInterview\CodeInterview\bin\Debug\netcoreapp3.0\CodeInterview.pdb
+D:\codepractice-prj\InterviewProblems\CodeInterview\CodeInterview\obj\Debug\netcoreapp3.0\CodeInterview.AssemblyInfoInputs.cache
+D:\codepractice-prj\InterviewProblems\CodeInterview\CodeInterview\obj\Debug\netcoreapp3.0\CodeInterview.AssemblyInfo.cs
+D:\codepractice-prj\InterviewProblems\CodeInterview\CodeInterview\obj\Debug\netcoreapp3.0\CodeInterview.dll
+D:\codepractice-prj\InterviewProblems\CodeInterview\CodeInterview\obj\Debug\netcoreapp3.0\CodeInterview.pdb
+D:\codepractice-prj\InterviewProblems\CodeInterview\CodeInterview\obj\Debug\netcoreapp3.0\CodeInterview.csprojAssemblyReference.cache
