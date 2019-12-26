@@ -12,8 +12,8 @@ namespace CodeInterview
         //The sub-array should contain all distinct values.
          static void Main(string[] args)
         {
-           //  var arr = new int[] { 2, 0, 2, 1, 4, 3, 1, 0 };
-            var arr = new int[] { 2, 0, 1, 2, 4, 3, 4, 0 };
+             var arr = new int[] { 2, 0, 2, 1, 4, 3, 1, 0 };
+           // var arr = new int[] { 2, 0, 1 , 2, 4, 3, 4, 0 };
 
             Console.WriteLine("Find largest sub-array formed by consecutive integers");
             Console.WriteLine("Array :" + string.Join(",", arr));
@@ -51,33 +51,39 @@ namespace CodeInterview
             var consectiveArrays = new List<List<int>>();
             for (int lindex = 0; lindex < arr.Length; lindex++)
             {
-                for (int hindex = 1; hindex < arr.Length; hindex++)
+                for (int hindex = lindex; hindex < arr.Length; hindex++)
                 {
-                    var subArray = arr.Where((o, i) => i <= hindex && i >= lindex).ToList();
-
+                    var subArray = arr.Where((o, i) => i <= hindex && i >= lindex).ToList();                    
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("sub array - {0}", string.Join(",", subArray).PadRight(arr.Length * 3));
+                    
                     if (isConsecutive(subArray))
                     {
                         consectiveArrays.Add(subArray);
                     }
-                    else
-                    {
-                        Console.ForegroundColor = ConsoleColor.White;
-                        Console.WriteLine("sub array - {0}", string.Join(",", subArray).PadRight(arr.Length * 3));
-                    }
+                 }
+            }
 
-                    if (consectiveArrays.Count > 0)
-                    {
-                        var largestArray = consectiveArrays.Aggregate((largest, item) => item.Count > largest.Count ? item : largest);
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("sub array - {0} ", string.Join(",", largestArray).PadRight(arr.Length * 3));
-                    }
+            if (consectiveArrays.Count > 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                foreach (var item in consectiveArrays)
+                {
+                    Console.WriteLine("sub array (consective values) - {0} ", string.Join(",", item).PadRight(arr.Length * 3));
                 }
+
+                var largestArray = consectiveArrays.Aggregate((largest, item) => item.Count > largest.Count ? item : largest);
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("largest sub array - {0} ", string.Join(",", largestArray).PadRight(arr.Length * 3));
             }
         }
 
         private static bool isConsecutive(List<int> subArray)
         {
-            return subArray.Where((o, i) => (subArray.Count-1) > i && Math.Abs(o - subArray[i + 1]) == 1).Count() == subArray.Count;
+            var sorted = subArray.OrderBy(o => o).ToList();
+            return sorted.Count > 0 && sorted.Where((o, i) => {
+                return  i < sorted.Count-1 && Math.Abs(o - sorted[i + 1]) == 1;
+                }).Count() == sorted.Count -1;
         }
     }
 }

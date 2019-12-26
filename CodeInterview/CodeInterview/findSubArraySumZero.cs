@@ -49,18 +49,21 @@ namespace CodeInterview
         private static void method2(int[] arr)
         {
             Console.ForegroundColor = ConsoleColor.White;
-            for (int index = 0; index < arr.Length; index++)
+            for (int lindex = 0; lindex < arr.Length; lindex++)
             {
-                var subArray = arr.Where((o, i) => i <= index);
-                var subArraySum = subArray.Sum();//Aggregate((first, second) => first + second);
-                if (subArraySum == 0)
+                for (int hindex = lindex; hindex < arr.Length; hindex++)
                 {
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("sub array - {0} = {1}", string.Join(",", subArray).PadRight(arr.Length * 3), subArraySum);
+                    var subArray = arr.Where((o, i) => i <= hindex && i >= lindex).ToList();
+                    var subArraySum = subArray.Sum();//Aggregate((first, second) => first + second);
+                    if (subArraySum == 0)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("sub array - {0} = {1}", string.Join(",", subArray).PadRight(arr.Length * 3), subArraySum);
 
+                    }
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("sub array - {0} = {1}", string.Join(",", subArray).PadRight(arr.Length * 3), subArraySum);
                 }
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("sub array - {0} = {1}",string.Join(",", subArray).PadRight(arr.Length * 3), subArraySum);
             }
 
         }
