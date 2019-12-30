@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.0</TargetFramework>
-    <StartupObject>CodeInterview.rearrangeArray</StartupObject>
+    <StartupObject>CodeInterview.findMaxSubArraykadane</StartupObject>
   </PropertyGroup>
 
 </Project>
